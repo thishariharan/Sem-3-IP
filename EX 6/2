@@ -1,0 +1,44 @@
+package exp6;
+import java.util.*;
+
+class exp 
+{
+    public void ifs(String grd[],int n)
+    {
+        int i=0;
+        n=n-1;
+        for(i=0;i<=n;i++)
+        {
+        try
+        {
+            //for(i=0;i<=n;i++)
+            //{
+                if((grd[i].equals("A")) || (grd[i].equals("B")) || (grd[i].equals("C")) || (grd[i].equals("D")) || (grd[i].equals("F")) || (grd[i].equals("I")))
+                {
+                    //i=i+1;
+                    System.out.print("\nValid");
+                }
+                else
+                {
+                    //grd[i]="I";
+                    //i=i+1;
+                    throw(new InvalidGradeException(grd[i-1]));
+                }
+            //}
+        }
+        catch(Exception e)
+        {
+            System.out.print("\nIt's Invalid and the given grade has "+ e);
+            grd[i] = "I";
+        }
+        }
+    }
+}
+
+class InvalidGradeException extends Exception
+{
+    public InvalidGradeException(String s)
+    {
+        super(s);
+    }
+}
