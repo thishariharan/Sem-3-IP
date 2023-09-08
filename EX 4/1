@@ -1,0 +1,83 @@
+package ex4;
+import java.util.*;
+public class Ex4 {
+
+    public static void main(String[] args) {
+        Scanner o = new Scanner(System.in);
+        
+        int i=0;
+        while(i==0)
+        {
+            System.out.println("\nPress\n1-For Students\n2-For Employees\n3.Exit\nEnter Your Choice : ");
+        int n = o.nextInt();
+        if(n>3)
+            break;
+            switch(n)
+            {
+                case 1:
+                    students std = new students();
+                    std.data();
+                    break;
+                case 2:
+                    employees emp = new employees();
+                    emp.data();
+                    break;
+                default:
+                    System.out.println("Wrong Choice");
+                    break; 
+            }
+            
+        }
+
+    }
+    
+}
+
+abstract class persons
+{
+    Scanner p = new Scanner(System.in);
+    String Name;
+    int ano;
+    abstract void data();
+    abstract void disp(String n,int a,int m);
+}
+
+class students extends persons
+{
+    void data()
+    {
+        System.out.println("\nEnter Student's name : ");
+        Name = p.nextLine();
+        System.out.println("\nEnter Student's Aadhar Number : ");
+        ano = p.nextInt();
+        System.out.print("\nEnter "+Name+"'s Marks : ");
+        int m = p.nextInt();
+        disp(Name,ano,m);
+    }
+    void disp(String n,int a,int m)
+    {
+        System.out.print("\n\nStudent Name : "+n+"\nAadhar Number : "+a+"\nMarks : "+m);
+    }
+}
+
+class employees extends persons
+{
+    void disp(String n,int a,int s)
+    {
+        dis(n,a,s);
+    }
+    void dis(String n,int a,int s)
+    {
+        System.out.print("\n\nEmployee Name : "+n+"\nAadhar Number : "+a+"\nMarks : "+s);
+    }
+    void data()
+    {
+        System.out.println("\nEnter Employee's name : ");
+        Name = p.nextLine();
+        System.out.println("\nEnter Employee's Aadhar Number : ");
+        ano = p.nextInt();
+        System.out.print("\nEnter "+Name+"'s Salary : ");
+        int s = p.nextInt();
+        disp(Name,ano,s);
+    }
+}
