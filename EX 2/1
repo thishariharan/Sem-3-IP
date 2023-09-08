@@ -1,0 +1,93 @@
+package exp2;
+import java.util.Scanner;
+/**
+ *
+ * @author HP
+ */
+public class ex22 {
+    public static void main(String[] args)
+    {
+        Account obj = new Account();
+        Scanner o =new Scanner(System.in);
+        System.out.print("Enter ID : ");
+        int id = o.nextInt(); 
+        System.out.print("Enter ID : ");
+        String name = o.nextLine(); 
+        int bal=0;
+        int temp=0;
+        int i=0;
+        System.out.print("1)To Credit\n2)To Debit\n3)To Transfer\n4)For Details\nEnter your choice : ");
+        int ch = o.nextInt();
+        while(1)
+        {
+        switch(ch)
+        {
+            case 1:
+                obj.credit(bal);
+            case 2:
+                obj.debit(bal);
+            case 3:
+                obj.trans(bal, temp);
+            case 4:
+                obj.String(id, name, bal);
+            default:
+                break;
+        }  
+        }
+                
+    }
+    
+}
+class dets
+{
+    
+}
+class Account
+{
+    Account obj = new Account();
+    Scanner o = new Scanner(System.in);
+    
+    void credit(int b)
+    {
+        System.out.print("Enter the Amount to be Cretited : ");
+        int c = o.nextInt();
+        b = b+c;
+        System.out.print("Balance : "+b);
+    }
+    void debit(int b)
+    {
+        System.out.print("Enter the amount to be Debited : ");
+        int a = o.nextInt();
+        if(a<=b)
+            b=b-a;
+        else
+            System.out.print("Transaction cancelled due to Insufficient balance.");
+        System.out.print("Balance : "+b);
+    }
+    void nm()
+    {
+        System.out.print("Enter ID : ");
+        String name = o.nextLine(); 
+    }
+    void trans(int b,int t)
+    {
+        System.out.print("Enter the amount to be Transfered : ");
+        int a = o.nextInt();
+        if(a<=b)
+        {
+            b=b-a;
+            t=t+a;
+        }    
+        else
+            System.out.print("Transaction cancelled due to Insufficient balance.");
+        System.out.print("Balance : "+b);
+    }
+    void String(int i,String n,int b)
+    {
+        System.out.print("Account details : ");
+                System.out.print("Name : "+n);
+                System.out.print("ID : "+i);
+                System.out.print("Balance : "+b);
+    }
+    
+}
