@@ -1,0 +1,37 @@
+package exp102;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class exp101{
+    public static void main(String[] args) {
+              new fmak();
+    }
+}      
+class fmak
+{
+    JFrame f;
+    JButton b;
+    fmak()
+    {
+        b = new JButton("Change");
+        b.setBounds(200, 400, 90, 40);        
+        f = new JFrame();        
+        f.setVisible(true);
+        f.setSize(500,500);
+        f.setLayout(null);        
+        f.add(b);
+        f.setTitle("Color Changer");
+        b.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){
+                int R = (int)(Math.random()*100) % 255;
+                int G = (int)(Math.random()*100) % 255;
+                int B = (int)(Math.random()*100) % 255;
+                Color g = new Color(R,G,B);
+                f.getContentPane().setBackground(g);
+            }  
+        });
+        f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
+       
+    }
+}
