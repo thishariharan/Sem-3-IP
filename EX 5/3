@@ -1,0 +1,30 @@
+//The Main File contents
+
+package ex5;
+import ex5.sub;
+
+public class ex52 extends sub {
+    public static void main(String[] args)
+    {
+        sub s = new sub();
+        s.dis();//The protected Properties can be accessed.
+        s.cal();//This can't be accessed as it returns a value.
+    }
+}
+
+//The Sub file contents
+
+
+package ex5;
+
+public class sub {
+    protected void dis()
+    {
+        System.out.print("\nThe name is Power-Star");
+    }
+    int cal()
+    {
+        int a =10;
+       return a;
+    }  
+}
