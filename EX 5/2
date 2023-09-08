@@ -1,0 +1,85 @@
+//Main of Pack1
+
+package pack1;
+import pack1.pack2.sub2;
+import pack1.pack2.pack3.sub3;
+
+public class p1 {
+    public static void main(String[] args)
+    {
+        sub1 a = new sub1();
+        sub2 b = new sub2();
+        sub3 c = new sub3();
+        a.disp();
+        b.disp();
+        c.disp();
+    }
+}
+
+//Sub of Pack2
+
+package pack1;
+
+public class sub1 {
+    public void disp()
+    {
+        System.out.print("\nWe are in Floor - I \n");
+    }  
+}
+
+//Main of Pack1
+
+package pack1.pack2;
+import pack1.sub1;
+import pack1.pack2.pack3.sub3;
+
+public class p2 {
+    public static void main(String[] args)
+    {
+        sub1 a = new sub1();
+        sub2 b = new sub2();
+        sub3 c = new sub3();
+        a.disp();
+        b.disp();
+        c.disp();
+    }
+}
+
+//Sub of Pack2
+
+package pack1.pack2;
+
+public class sub2 {
+    public void disp()
+    {
+        System.out.print("\nWe are in Floor - II \n");
+    }
+}
+
+//Main of Pack3
+
+package pack1.pack2.pack3;
+import pack1.sub1;
+import pack1.pack2.sub2;
+public class p3 {
+    public static void main(String[] args)
+    {
+        sub1 a = new sub1();
+        sub2 b = new sub2();
+        sub3 c = new sub3();
+        a.disp();
+        b.disp();
+        c.disp();
+    }
+}
+
+//Sub of Pack3
+
+package pack1.pack2.pack3;
+
+public class sub3 {
+    public void disp()
+    {
+        System.out.print("\nWe are in Floor - III \n");
+    }
+}
