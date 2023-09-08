@@ -1,0 +1,75 @@
+package exp6;
+import java.util.Scanner;
+import exp6.exp;
+public class Main_file {
+    public static void main(String[] args)
+    {
+        System.out.print("\nThe Sub file : ");
+        getdets d = new getdets();
+        d.name();
+    }
+}
+
+class getdets
+{
+    exp a = new exp();
+    Scanner o = new Scanner(System.in);
+    String nm[] = new String[100];
+    String g[] = new String[100];
+    int rl[] = new int[100];
+    public void name()
+    {
+        int n,i;
+        System.out.print("\nEnter the number of Students : "); n = o.nextInt();
+        //nm[] = String[n];        
+        System.out.print("\nEnter Students name : \n");
+        for(i=0;i<n;i++)
+        {
+            System.out.print(" "+(i+1)+"-");
+            nm[i] = o.next();
+        }
+        id(n);
+    }
+    public void id(int n)
+    {
+        int i;
+        System.out.print("\nEnter Students ID's : \n");
+        for(i=0;i<n;i++)
+        {
+            System.out.print(" "+(i+1)+"-");
+            rl[i] = o.nextInt();
+        }
+        grd(n);
+    }
+    public void grd(int n)
+    {
+        int i;
+        String t;
+        //String g[] = new String[n];
+        System.out.print("\n The Grades :\nA-Awesome\tB-Better\tC-Come on\tD-Do better\nF-Focus on\tI-Incomplete");
+        System.out.print("\nEnter Students Grades : \n");
+        for(i=0;i<n;i++)
+        {
+            System.out.print(" "+(i+1)+"-");
+            t = o.next();
+            t = t.toUpperCase();
+            g[i] = t;
+        }
+        a.ifs(g,n);
+        disp(n);
+    }
+    public void disp(int n)
+    {
+        int i;
+        System.out.print("\nDo you need the Details (y/n) : ");
+        String c = o.next();
+        System.out.print("\n\tID\tName\tGrade");
+        if(c.equals("Y") || c.equals("y"))
+        {
+            for(i=0;i<n;i++)
+            {
+                System.out.print("\n\t"+rl[i]+"\t"+nm[i]+"\t"+g[i]);
+            }
+        }
+    }
+}
