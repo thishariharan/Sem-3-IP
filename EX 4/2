@@ -1,0 +1,89 @@
+package ex42;
+import java.util.*;
+public class ex41 {
+    public static void main(String[] args)
+    {
+        Scanner o = new Scanner(System.in);
+        market m = new market();
+        int i,j;
+        restaurant r = new restaurant();
+        System.out.print("\nMarket Purchase\n");
+        System.out.print("Enter number of Items : ");
+        i = o.nextInt();
+        m.bill(i);
+        System.out.print("\n\nMarket Purchase\n");
+        System.out.print("Enter number of Dishes : ");
+        j = o.nextInt();
+        r.bill(j);
+    }
+    
+}
+
+interface printable
+{
+    Scanner p = new Scanner(System.in);
+    abstract void bill(int i);
+    abstract void disp(String i[],int p[],int c);
+}
+
+class market implements printable
+{
+    @Override
+    public void bill(int n)
+    {
+        int i;
+        String nm[] = new String[10];
+        int pc[] = new int[10];
+        for(i=0;i<n;i++)
+        {
+        System.out.println("\nEnter Item : ");
+        nm[i] = p.nextLine();
+        System.out.println("\nEnter Price : ");
+        pc[i] = p.nextInt();
+        }        
+        disp(nm,pc,n);
+    }
+    @Override
+    public void disp(String i[],int p[],int c)
+    {
+        int n,j=0;
+        System.out.print("\n\n   Item          Price");
+        for(n=0;n<c;n++)
+        {
+            System.out.print("\n "+i[n]+"           "+p[n]);
+            j = j+p[n];
+        }
+        System.out.print("\n Total Amount : "+j);
+    }
+}
+
+class restaurant implements printable
+{
+    @Override
+    public void bill(int n)
+    {
+        int i;
+        String nm[] = new String[10];
+        int pc[] = new int[10];
+        for(i=0;i<n;i++)
+        {
+        System.out.println("\nEnter Dish : ");
+        nm[i] = p.nextLine();
+        System.out.println("\nEnter Price : ");
+        pc[i] = p.nextInt();
+        }
+        disp(nm,pc,n);
+    }
+    @Override
+    public void disp(String i[],int p[],int c)
+    {
+        int n,j=0;
+        System.out.print("\n\n   Dish          Price");
+        for(n=0;n<c;n++)
+        {
+            System.out.print("\n "+i[n]+"           "+p[n]);
+            j = j+p[n];
+        }
+        System.out.print("\n Total Amount : "+j);
+    }
+}
