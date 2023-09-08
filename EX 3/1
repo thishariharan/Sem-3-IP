@@ -1,0 +1,165 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package ex3;
+
+/**
+ *
+ * @author HP
+ */
+import java.util.Scanner;
+
+public class new3 {
+   
+    public static void main(String[] args) {
+        Scanner o = new Scanner(System.in);
+        int i=0;
+        circle c = new circle();
+        square s = new square();
+        rectangle r = new rectangle();
+        shape sp = new shape();
+        while(i==0)
+        {
+        System.out.println("Press \n 1 - For Circle \n 2 - For Square \n 3 - For Rectangle \n Enter your choice : ");
+        int ch = o.nextInt();
+        if(ch==1)
+        {
+            
+            String cir = "Circle";
+            //sp.color(cir);
+            System.out.print(" Enter the Radius : ");
+            int rad = o.nextInt();
+            //c.value();
+            c.form(rad, cir);
+        }
+            
+        else if(ch==2)
+        {
+            String sq = "Square";
+            //sp.color(cir);
+            System.out.print(" Enter the Side : ");
+            int sd = o.nextInt();
+            //c.value();
+            s.form(sd, sq);
+            //s.value();
+        }
+            
+        else if(ch == 3)
+            r.value();
+        else
+            break;
+        }    
+    }
+}
+
+class shape
+{
+    Scanner sn = new Scanner(System.in);
+    public void color(String s)
+    {
+        System.out.print(" Enter the Color of "+s+" : ");
+        String col = sn.nextLine();
+        fill(col,s);
+    }
+    public void fill(String c,String s)
+    {
+        System.out.print(" Enter the Filling (T/F) : ");
+        String f = sn.nextLine();
+        if((f=="T") || (f=="t"))
+            f = "T";
+        else
+            f = "F";  
+        pt(s,f,c);
+    }
+    public void pt(String s,String f,String c)
+    {
+        System.out.print("\nShape : "+s+"\nFilled : "+f+"\nColor : "+c+"\n");
+    }
+}
+
+class circle extends shape
+{
+   public int radius()
+   {
+       System.out.print(" Enter the Radius : ");
+       int r = sn.nextInt();
+       return r;
+   }
+   public void value()
+   {
+       String c = "Circle";
+       //System.out.print(" Enter the Radius : ");
+       //int r = sn.nextInt();
+       color(c);
+   }
+   public void form(int r,String s)
+   {
+       double a = 3.14*r*r;
+       double p = 2*3.14*r;
+       System.out.print("\nArea : "+a+"\nPerimeter : "+p+"\n");
+       String c = "Circle";
+       color(c);
+       toString(s,r,a,p);
+       
+   }
+   public String toString(String s,int r,double a,double p)
+   {  
+       String c = "Circle";
+       return "Shape : "+s+"\nRadius : "+r+"\nArea : "+a+"\nPerimeter : "+p;
+   }
+}
+
+class square extends shape
+{
+   public void value()
+   {
+       System.out.print(" Enter the Side : ");
+       int sd = sn.nextInt();
+       String s = "Square";
+       color(s);
+       form(sd,s);
+   }
+   public void form(int sd,String s)
+   {
+       int a = sd*sd;
+       int p = 4*sd;
+       System.out.print("\nArea : "+a+"\nPerimeter : "+p+"\n");
+       //String c = "Square";
+       color(s);
+       toString(s,sd,a,p);
+   }
+   public String toString(String s,int sd,int a,int p)
+   {  
+       return "Shape : "+s+"\nRadius : "+sd+"\nArea : "+a+"\nPerimeter : "+p;
+   
+   }
+}
+
+class rectangle extends shape
+{
+      public void value()
+   {
+       System.out.print(" Enter the Length : ");
+       int l = sn.nextInt();
+       System.out.print(" Enter the Breadth : ");
+       int b = sn.nextInt();
+       String r = "Square";
+       color(r);
+       form(l,b,r);
+   }
+   public void form(int l,int b,String s)
+   {
+       int a = l*b;
+       int p = 2*(l+b);
+       System.out.print("\nLength : "+l+"\nBreadth : "+b+"\nArea : "+a+"\nPerimeter : "+p+"\n");
+       //String c = "Square";
+       color(s);
+       toString(s,l,b,a,p);
+   }
+   public String toString(String s,int sd,int b,int a,int p)
+   {  
+       return "Shape : "+s+"\nLength : "+sd+"\nBreadth : "+b+"\nArea : "+a+"\nPerimeter : "+p;
+   
+   }
+}
