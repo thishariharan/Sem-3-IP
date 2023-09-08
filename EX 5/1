@@ -1,0 +1,62 @@
+
+package ex5;
+import java.util.*;
+public class Ex5 {
+
+    public static void main(String[] args) {
+        Scanner o = new Scanner(System.in);
+        int i=0,c;
+        converter cs = new converter();
+        while(i==0)
+        {
+            System.out.print("\n1-From Hours\n2-From Seconds\n3-From Minutes\nEnter your choice : ");
+            c = o.nextInt();
+            switch(c)
+            {
+                case 1:
+                    System.out.print("\nEnter Hours : ");
+                    float h = o.nextFloat();
+                    cs.hr(h);
+                    break;
+                case 2:
+                    System.out.print("\nEnter Seconds : ");
+                    int s= o.nextInt();
+                    cs.sc(s);
+                    break;
+                case 3:
+                    System.out.print("\nEnter Minutes : ");
+                    float m = o.nextFloat();
+                    cs.mi(m);
+                    break;
+                default:
+                    i = i+1;
+                    break;
+            }           
+        }
+    }    
+}
+
+class converter
+{
+    void hr(float h)
+    {
+        float min,sec;
+        min = h*60;
+        sec = h*3600;
+        System.out.print("\nHours : "+h+"\nin Minutes : "+min+"      in Seconds : "+sec);
+    }
+    void sc(int s)
+    {
+        float hrs,min;
+        min = s/60;
+        hrs = s/3600;
+        System.out.print("\nSeconds : "+s+"\nin Hours : "+hrs+"      in Minutes : "+min);
+    }
+    void mi(float m)
+    {
+        float hrs,sec;
+        sec = m*60;
+        hrs = m/60;
+        System.out.print("\nMinutes : "+m+"\nin Hours : "+hrs+"      in Seconds : "+sec);
+    }
+}
